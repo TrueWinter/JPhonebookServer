@@ -1,0 +1,31 @@
+{% include "web/html/fragments/head.peb" with {"title": "Add Contact"} %}
+
+<div class="main">
+    <div class="flex">
+        <h1>Edit Contact</h1>
+    </div>
+    <hr>
+    <div class="content">
+        <h2 style="margin-left:0;margin-right:4px;">Directory: {{ dir_name }}</h2>
+        {% if error is not empty %}
+            <div class="error text-center">{{ error }}</div>
+        {% endif %}
+        <p class="text-center">The name field is required, and at least one of the following must be present: telephone, mobile, other</p>
+        <form method="POST" class="login-form text-center gap-8">
+            <input type="hidden" name="csrf" value="{{ csrf }}">
+            Name: <input type="text" name="name" required maxlength="255" value="{{ contact_name }}">
+            <br>
+            Telephone: <input type="text" name="telephone" pattern="[0-9]+" maxlength="20" value="{{ contact_telephone }}">
+            <br>
+            Mobile: <input type="text" name="mobile" pattern="[0-9]+" maxlength="20" value="{{ contact_mobile }}">
+            <br>
+            Other: <input type="text" name="other" pattern="[0-9]+" maxlength="20" value="{{ contact_other }}">
+            <br>
+            Group Name: <input type="text" name="group" maxlength="30" value="{{ contact_group }}">
+            <br>
+            <button type="submit">Edit Contact</button>
+        </form>
+    </div>
+</div>
+
+{% include "web/html/fragments/foot.peb" %}

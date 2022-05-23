@@ -1,0 +1,34 @@
+{% include "web/html/fragments/head.peb" with {"title": "Contacts"} %}
+
+<div class="main">
+    <div class="flex">
+        <h1>Contacts</h1>
+        <a href="/admin/directories/{{ dir_id }}/contacts/add" class="button inline-button-right">Add Contact</a>
+    </div>
+    <hr>
+    {% if success is not empty %}
+        <div class="success text-center">{{ success }}</div>
+    {% endif %}
+        {% if error is not empty %}
+        <div class="error text-center">{{ error }}</div>
+    {% endif %}
+    {% if showURL is not empty %}
+        <script>
+            history.replaceState(null, '', '{{ showURL }}');
+        </script>
+    {% endif %}
+    <div class="error" id="apiError"></div>
+    <div class="content">
+        <h2 style="margin-top:0;margin-bottom:4px;">Directory: {{ dir_name }}</h2>
+        <div id="apiData"></div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        loadContacts('{{ dir_id }}', '{{ csrf }}');
+    });
+</script>
+{% include "web/html/fragments/foot.peb" with {"scripts": [
+    "/admin/assets/contacts.js"
+]} %}

@@ -1,0 +1,21 @@
+{% include "web/html/fragments/head.peb" with {"title": "Add Directory"} %}
+
+<div class="main">
+    <div class="flex">
+        <h1>Add Directory</h1>
+    </div>
+    <hr>
+    <div class="content">
+        {% if error is not empty %}
+            <div class="error text-center">{{ error }}</div>
+        {% endif %}
+        <form method="POST" class="login-form text-center gap-8">
+            <input type="hidden" name="csrf" value="{{ csrf }}">
+            Name: <input type="text" name="name" required maxlength="255">
+            <br>
+            <button type="submit">Create Directory</button>
+        </form>
+    </div>
+</div>
+
+{% include "web/html/fragments/foot.peb" %}

@@ -1,0 +1,8 @@
+    <script src="/admin/assets/common.js"></script>
+    {% if scripts is not empty %}
+        {% for script in scripts %}
+            <script src="{{ script }}"></script>
+        {% endfor %}
+    {% endif %}
+    </body>
+</html>

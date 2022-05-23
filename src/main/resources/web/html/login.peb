@@ -1,0 +1,18 @@
+{% include "web/html/fragments/head.peb" with {"title": "Login", "nonav": "true"} %}
+
+<div class="login-form">
+    <h1>Login</h1>
+    <hr>
+    {% if error is not empty %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="POST">
+        Username: <input type="text" name="username">
+        <br>
+        Password: <input type="password" name="password">
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+{% include "web/html/fragments/foot.peb" %}

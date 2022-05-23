@@ -1,0 +1,15 @@
+{% include "web/html/fragments/head.peb" with {"title": "Error"} %}
+
+<div class="main">
+    <h1>Error</h1>
+    <hr>
+    <div class="content">
+        {% if error is not empty %}
+            <div class="error">{{ error }}</div>
+        {% else %}
+            <div class="error">An error occurred.</div>
+        {% endif %}
+    </div>
+</div>
+
+{% include "web/html/fragments/foot.peb" %}

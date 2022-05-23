@@ -1,0 +1,10 @@
+<div class="navbar">
+    <li class="navbar-item"><a href="/admin/directories">Directories</a></li>
+    {% if role equals "admin" %}
+        <li class="navbar-item"><a href="/admin/accounts">Accounts</a></li>
+    {% endif %}
+    <div class="navbar-item navbar-right flex">
+        <li class="navbar-item"><a href="/admin/accounts/edit/{{ id }}">My Account</a></li>
+        <li class="navbar-item"><a href="/admin/logout">Logout</a></li>
+    </div>
+</div>

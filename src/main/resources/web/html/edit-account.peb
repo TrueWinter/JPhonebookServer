@@ -1,0 +1,48 @@
+    {% include "web/html/fragments/head.peb" with {"title": "Edit Account"} %}
+
+<div class="main">
+    <div class="flex">
+        <h1>Edit Account</h1>
+    </div>
+    <hr>
+    <div class="content">
+        {% if success is not empty %}
+            <div class="success text-center">{{ success }}</div>
+        {% endif %}
+        {% if error is not empty %}
+            <div class="error text-center">{{ error }}</div>
+        {% endif %}
+        <form method="POST" class="login-form text-center gap-8">
+            <input type="hidden" name="csrf" value="{{ csrf }}">
+            Username: <input type="text" name="username" value="{{ acc_username }}" {% if role equals "user" or acc_username equals "admin" %}disabled{% endif %} required>
+            {% if acc_username equals "admin" %}
+                <small>The default admin account's username cannot be changed</small>
+            {% elseif role equals "user" %}
+                <small>If you would like your username changed, please contact an admin</small>
+            {% endif %}
+            <br>
+            Password: <input type="password" name="password">
+            <br>
+            Confirm Password: <input type="password" name="confirmPassword">
+            {% if role != "user" %}<small>Leave password blank to leave unchanged</small>{% endif %}
+            <br>
+            Role: <select name="role" {% if acc_id equals id %}disabled{% endif %} required>
+                <option value="user" {% if acc_role equals "user" %}selected{% endif %}>user</option>
+                <option value="admin" {% if acc_role equals "admin" %}selected{% endif %}>admin</option>
+            </select>
+            {% if role equals "user" %}
+                <small>If you would like your role changed, please contact an admin</small>
+            {% elseif acc_id equals id %}
+                <small>If you would like your role changed, please contact a different admin</small>
+            {% endif %}
+            <br>
+            {% if acc_id != id %}
+                Active: <input type="checkbox" name="active" {% if acc_active equals "true" %}checked{% endif %}>
+            {% endif %}
+            <br>
+            <button type="submit">Edit Account</button>
+        </form>
+    </div>
+</div>
+
+{% include "web/html/fragments/foot.peb" %}

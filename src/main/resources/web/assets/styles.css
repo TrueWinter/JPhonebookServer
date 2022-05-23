@@ -1,0 +1,131 @@
+:root {
+    --main-bg-color: #333;
+    --main-text-color: white;
+    --secondary-bg-color: #252252;
+    --link-color: #20bf20;
+    --success-color: #20bf20;
+    --warn-color: #f98181;
+    --error-color: #f98181;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-form > * {
+    display: flex;
+    align-self: center;
+}
+
+.login-form > hr {
+    width: 50%;
+}
+
+.login-form > form {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.success {
+    color: var(--success-color);
+}
+
+.warn {
+    color: var(--warn-color);
+}
+
+.error {
+    color: var(--error-color);
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+    background-color: var(--secondary-bg-color);
+    padding: 12px;
+}
+
+.navbar-item {
+    gap: 16px;
+}
+
+a {
+    color: var(--link-color);
+}
+
+.navbar-right {
+    margin-left:auto;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: var(--secondary-bg-color);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.warn-button {
+    border: 0;
+    cursor: pointer;
+    padding: 6px !important;
+    background-color: var(--warn-color) !important;
+}
+
+.inline-button-right {
+    align-self: center;
+    margin-left: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+h1, .main .content {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.gap-8 {
+    gap: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid grey;
+}
+
+#apiData {
+    overflow: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar {
+        flex-direction: column;
+        margin-left: unset;
+    }
+}

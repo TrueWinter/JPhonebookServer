@@ -1,0 +1,28 @@
+    {% include "web/html/fragments/head.peb" with {"title": "Accounts"} %}
+
+<div class="main">
+    <div class="flex">
+        <h1>Accounts</h1>
+        <a href="/admin/accounts/add" class="button inline-button-right">Add Account</a>
+    </div>
+    <hr>
+    {% if success is not empty %}
+        <div class="success text-center">{{ success }}</div>
+    {% endif %}
+    {% if error is not empty %}
+        <div class="error text-center">{{ error }}</div>
+    {% endif %}
+    {% if showURL is not empty %}
+        <script>
+            history.replaceState(null, '', '{{ showURL }}');
+        </script>
+    {% endif %}
+    <div class="error" id="apiError"></div>
+    <div class="content">
+        <div id="apiData"></div>
+    </div>
+</div>
+
+{% include "web/html/fragments/foot.peb" with {"scripts": [
+    "/admin/assets/accounts.js"
+]} %}

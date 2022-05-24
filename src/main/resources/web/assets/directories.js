@@ -15,12 +15,15 @@ function loadDirectories(csrfToken) {
         table.appendChild(createTableHeader('ID', 'Name', 'Edit', 'Contacts', 'Delete'));
 
         for (var i = 0; i < response.directories.length; i++) {
+            var editLink = new PaddedElement(createLink(`/admin/directories/${response.directories[i].id}/edit`, 'Edit'), 16, 16);
+            var contactsLink = new PaddedElement(createLink(`/admin/directories/${response.directories[i].id}/contacts`, 'Contacts'), 16, 16);
+            var deleteButton = new PaddedElement(createDeleteForm(response.directories[i].id), 16, 16);
             var tr = createTableRow(
                     response.directories[i].id,
                     response.directories[i].name,
-                    createLink(`/admin/directories/${response.directories[i].id}/edit`, 'Edit'),
-                    createLink(`/admin/directories/${response.directories[i].id}/contacts`, 'Contacts'),
-                    createDeleteForm(response.directories[i].id)
+                    editLink,
+                    contactsLink,
+                    deleteButton
                 );
             table.appendChild(tr);
         }

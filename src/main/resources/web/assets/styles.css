@@ -113,6 +113,8 @@ table {
 
 th, td {
     border: 1px solid grey;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 #apiData {

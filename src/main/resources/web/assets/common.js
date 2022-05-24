@@ -1,3 +1,15 @@
+class PaddedElement {
+    constructor(element, paddingLeft, paddingRight) {
+        this._element = element;
+        this._element.style.paddingLeft = `${paddingLeft}px`;
+        this._element.style.paddingRight = `${paddingRight}px`;
+    }
+
+    getElement() {
+        return this._element;
+    }
+}
+
 function createTableHeader(...headings) {
     var tr = document.createElement('tr');
 
@@ -5,6 +17,8 @@ function createTableHeader(...headings) {
         var th = document.createElement('th');
         if (headings[i] instanceof Element) {
             th.appendChild(headings[i]);
+        } else if (headings[i] instanceof PaddedElement) {
+            td.appendChild(data[i].getElement());
         } else {
             th.innerText = headings[i];
         }
@@ -21,6 +35,8 @@ function createTableRow(...data) {
         var td = document.createElement('td');
         if (data[i] instanceof Element) {
             td.appendChild(data[i]);
+        } else if (data[i] instanceof PaddedElement) {
+            td.appendChild(data[i].getElement());
         } else {
             td.innerText = data[i];
         }

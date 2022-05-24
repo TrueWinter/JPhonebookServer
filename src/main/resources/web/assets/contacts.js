@@ -15,6 +15,8 @@ function loadContacts(directory, csrfToken) {
         table.appendChild(createTableHeader('ID', 'Name', 'Telephone', 'Mobile', 'Other', 'Group', 'Edit', 'Delete'));
 
         for (var i = 0; i < response.contacts.length; i++) {
+            var editLink = new PaddedElement(createLink(`/admin/directories/${directory}/contacts/${response.contacts[i].id}/edit`, 'Edit'), 16, 16);
+            var deleteButton = new PaddedElement(createDeleteForm(response.contacts[i].id), 16, 16);
             var tr = createTableRow(
                     response.contacts[i].id,
                     response.contacts[i].name,
@@ -22,8 +24,8 @@ function loadContacts(directory, csrfToken) {
                     response.contacts[i].mobile,
                     response.contacts[i].other,
                     response.contacts[i].group,
-                    createLink(`/admin/directories/${directory}/contacts/${response.contacts[i].id}/edit`, 'Edit'),
-                    createDeleteForm(response.contacts[i].id)
+                    editLink,
+                    deleteButton
                 );
             table.appendChild(tr);
         }

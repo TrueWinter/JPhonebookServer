@@ -1,5 +1,6 @@
 package dev.truewinter.jphonebookserver;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 public class JPhonebookServer {
@@ -8,6 +9,12 @@ public class JPhonebookServer {
     private static WebServer webServer;
 
     public static void main(String[] args) {
+        try {
+            System.out.println("Starting JPhonebookServer v" + Util.getVersion());
+        } catch (IOException e) {
+            System.out.println("Starting JPhonebookServer (unknown version)");
+        }
+
         try {
             database = Database.getInstance();
 

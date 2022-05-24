@@ -8,6 +8,10 @@ It was made due to the official app being a Windows-only desktop app, and me req
 
 To use, run `java -jar JPhonebookServer-{version}.jar` from a command line. You will need Java 16 or later.
 
+Access the admin dashboard through `{ip}:8080/admin` to add directories and contacts. The default account has a username of `admin` and a password of `phonebook`.
+
+Please note that nested directories are not supported at this time.
+
 ## Configuration
 
 After running JPhonebookServer, a configuration file will be created. Edit this as desired, then run the server again.

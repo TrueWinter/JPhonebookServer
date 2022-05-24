@@ -2,8 +2,10 @@ package dev.truewinter.jphonebookserver.routes;
 
 import dev.truewinter.jphonebookserver.AccountRoles;
 import dev.truewinter.jphonebookserver.Database;
+import dev.truewinter.jphonebookserver.Util;
 import io.javalin.http.Context;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -53,6 +55,12 @@ public abstract class Route {
             model.put("id", ctx.sessionAttribute("logged-in-user").toString());
             model.put("role", ctx.sessionAttribute("logged-in-user-role"));
             model.put("csrf", ctx.sessionAttribute("csrf"));
+        }
+
+        try {
+            model.put("JPhonebookServerVersion", Util.getVersion());
+        } catch (IOException e) {
+            model.put("JPhonebookServerVersion", "x.x.x");
         }
     }
 

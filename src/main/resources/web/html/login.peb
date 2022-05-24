@@ -1,7 +1,8 @@
 {% include "web/html/fragments/head.peb" with {"title": "Login", "nonav": "true"} %}
 
 <div class="login-form">
-    <h1>Login</h1>
+    <h1 style="margin-bottom:4px;">Login</h1>
+    <p>JPhonebookServer v{{ JPhonebookServerVersion }}</p>
     <hr>
     {% if error is not empty %}
         <div class="error">{{ error }}</div>

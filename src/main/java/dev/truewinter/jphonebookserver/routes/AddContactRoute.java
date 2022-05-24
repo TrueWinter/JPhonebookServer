@@ -60,6 +60,7 @@ public class AddContactRoute extends Route {
                     return;
                 }
 
+                d.put("showURL", "/admin/directories/" + directory.getId() + "/contacts");
                 renderSuccess(ctx, "contacts", "Contact added", d);
             }, () -> {
                 renderError(ctx, "directories", "Failed to load directory data from database");

@@ -60,6 +60,7 @@ public abstract class Route {
         try {
             model.put("JPhonebookServerVersion", Util.getVersion());
         } catch (IOException e) {
+            e.printStackTrace();
             model.put("JPhonebookServerVersion", "x.x.x");
         }
     }

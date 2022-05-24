@@ -6,7 +6,7 @@
 
     <groupId>dev.truewinter</groupId>
     <artifactId>JPhonebookServer</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 
     <dependencies>
         <dependency>
@@ -140,12 +140,18 @@
         </plugins>
         <resources>
             <resource>
-                <directory>src/main/resources/web</directory>
-                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
             </resource>
         </resources>
     </build>

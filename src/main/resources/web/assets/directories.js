@@ -38,10 +38,11 @@ function loadDirectories(csrfToken) {
         document.getElementById('apiError').innerText = error;
     }
 
-    function createDeleteForm(id) {
+    function createDeleteForm(dirId) {
         let form = document.createElement('form');
         form.method = 'POST';
-        form.action = `/admin/directories/${id}/delete`;
+        // IMPORTANT: Do not use $\{id} here. Maven replaces it and everything I tried to get that to stop failed
+        form.action = `/admin/directories/${dirId}/delete`;
 
         let csrf = document.createElement('input');
         csrf.type = 'hidden';

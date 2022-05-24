@@ -82,7 +82,7 @@ public class WebServer extends Thread {
 
             try {
                 context.header(Header.SERVER, "JPhonebookServer/" + Util.getVersion());
-            } catch (IOException e) {
+            } catch (Exception e) {
                 context.header(Header.SERVER, "JPhonebookServer");
             }
         });

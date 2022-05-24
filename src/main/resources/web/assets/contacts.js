@@ -41,10 +41,11 @@ function loadContacts(directory, csrfToken) {
         document.getElementById('apiError').innerText = error;
     }
 
-    function createDeleteForm(id) {
+    function createDeleteForm(contId) {
         let form = document.createElement('form');
         form.method = 'POST';
-        form.action = `/admin/directories/${directory}/contacts/${id}/delete`;
+        // IMPORTANT: Do not use $\{id} here. Maven replaces it and everything I tried to get that to stop failed
+        form.action = `/admin/directories/${directory}/contacts/${contId}/delete`;
 
         let csrf = document.createElement('input');
         csrf.type = 'hidden';
